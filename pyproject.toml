@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mcp-rosreestr"
+version = "1.0.0"
+description = "MCP Server для работы с данными Росреестра (кадастровые номера, координаты, ЗУ, ОКС)"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Yakunin Sergey", email = "yasg1988@gmail.com" }
+]
+keywords = ["mcp", "rosreestr", "cadastral", "coordinates", "geojson", "land", "building"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "mcp>=1.0.0",
+    "requests>=2.25.0",
+    "rosreestr2coord>=5.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "mypy",
+]
+
+[project.scripts]
+mcp-rosreestr = "server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
