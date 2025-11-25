@@ -33,16 +33,25 @@ MCP Server для работы с данными Росреестра - полу
 
 ## Установка
 
+### 1. Клонировать репозиторий
+
+```bash
+git clone https://github.com/yasg1988/mcp-rosreestr.git
+cd mcp-rosreestr
+```
+
+### 2. Установить зависимости
+
+```bash
+pip install -r requirements.txt
+```
+
+Или через pyproject.toml:
 ```bash
 pip install -e .
 ```
 
-Или через uv:
-```bash
-uv pip install -e .
-```
-
-## Настройка Claude Code
+### 3. Настроить Claude Code
 
 Добавьте в `.mcp.json` проекта или `~/.claude/settings.json`:
 
@@ -51,7 +60,7 @@ uv pip install -e .
   "mcpServers": {
     "rosreestr": {
       "command": "python",
-      "args": ["path/to/mcp-rosreestr/server.py"],
+      "args": ["/полный/путь/к/mcp-rosreestr/server.py"],
       "env": {
         "ROSREESTR_API_URL": "https://your-api-url.com",
         "ROSREESTR_API_TOKEN": "your-api-token"
@@ -60,6 +69,8 @@ uv pip install -e .
   }
 }
 ```
+
+**Важно:** укажите полный путь к `server.py` (например, `C:/Projects/mcp-rosreestr/server.py` или `/home/user/mcp-rosreestr/server.py`).
 
 ## Переменные окружения
 
