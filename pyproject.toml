@@ -35,8 +35,5 @@ dev = [
     "mypy",
 ]
 
-[project.scripts]
-mcp-rosreestr = "server:main"
-
-[tool.hatch.build.targets.wheel]
-packages = ["."]
+# Для запуска: python server.py
+# Или укажите путь в .mcp.json
